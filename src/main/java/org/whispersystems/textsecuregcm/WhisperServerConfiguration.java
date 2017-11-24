@@ -130,8 +130,8 @@ public class WhisperServerConfiguration extends Configuration {
   @JsonProperty
   private GcmConfiguration gcm;
 
-  @Valid
-  @NotNull
+//  @Valid
+//  @NotNull
   @JsonProperty
   private ApnConfiguration apn;
 

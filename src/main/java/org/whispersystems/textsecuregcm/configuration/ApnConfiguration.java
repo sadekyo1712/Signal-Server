@@ -22,15 +22,15 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class ApnConfiguration {
 
-  @NotEmpty
+//  @NotEmpty
   @JsonProperty
   private String pushCertificate;
 
-  @NotEmpty
+//  @NotEmpty
   @JsonProperty
   private String pushKey;
 
-  @NotEmpty
+//  @NotEmpty
   @JsonProperty
   private String bundleId;
 

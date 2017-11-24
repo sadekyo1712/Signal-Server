@@ -149,11 +149,11 @@ public class PushSender implements Managed {
                                   false, ApnMessage.MAX_EXPIRATION);
     }
 
-    try {
-      apnSender.sendMessage(apnMessage);
-    } catch (TransientPushFailureException e) {
-      logger.warn("SILENT PUSH LOSS", e);
-    }
+//    try {
+//      apnSender.sendMessage(apnMessage);
+//    } catch (TransientPushFailureException e) {
+//      logger.warn("SILENT PUSH LOSS", e);
+//    }
   }
 
   private void sendWebSocketMessage(Account account, Device device, Envelope outgoingMessage)
@@ -163,7 +163,7 @@ public class PushSender implements Managed {
 
   @Override
   public void start() throws Exception {
-    apnSender.start();
+//    apnSender.start();
     gcmSender.start();
   }
 
@@ -172,7 +172,7 @@ public class PushSender implements Managed {
     executor.shutdown();
     executor.awaitTermination(5, TimeUnit.MINUTES);
 
-    apnSender.stop();
+//    apnSender.stop();
     gcmSender.stop();
   }
 }

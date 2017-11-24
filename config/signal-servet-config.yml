@@ -1,0 +1,135 @@
+twilio:
+  accountId: ACc164616ce856ade15df79b94fe9f27f8
+  accountToken: c9b0c366a4dfe45e68a42100c0c825b5
+  numbers:
+    - +13142309671
+  messagingServicesId:
+  localDomain: example.org
+
+push:
+  queueSize: 200
+
+redphone:
+  authKey: # Deprecated
+
+turn:
+  secret: ABCDEFGCUFYDHVM2LXXX
+  uris:
+    - stun:global.stun.twilio.com:3478?transport=udp
+    - stun:stun.l.google.com:19302
+    - stun:stun1.l.google.com:19302
+    - stun:stun2.l.google.com:19302
+    - stun:stun3.l.google.com:19302
+    - turn:turn01.hubl.in?transport=udp
+    - turn:turn02.hubl.in?transport=tcp
+
+cache:
+  url: redis://localhost:6379/0
+
+directory:
+  url: redis://localhost:6379/1
+
+messageStore:
+  driverClass: org.postgresql.Driver
+  user: signal
+  password: 1234567a@
+  url: jdbc:postgresql://localhost:5432/messagedb
+
+attachments: # AWS S3
+  accessKey: ABCDEFGCUFYDHVM2LXXX
+  accessSecret: W0UfGDddfAbqYyCTIIbSQlDtreTGokOs0OTpL0SE
+  bucket: thenameofyouts3buket
+
+profiles: # AWS S3
+  accessKey: ABCDEFGCUFYDHVM2LXXX
+  accessSecret: W0UfGDddfAbqYyCTIIbSQlDtreTGokOs0OTpL0SE
+  bucket: thenameofyouts3buket
+  region: eu-west-1
+
+database:
+  driverClass: org.postgresql.Driver
+  user: signal
+  password: 1234567a@
+  url: jdbc:postgresql://localhost:5432/accountsdb
+
+apn: # Apple Push Notifications configuration
+  bundleId:
+  pushCertificate:
+  pushKey:
+
+gcm: # GCM Configuration
+  senderId: 372656403936
+  apiKey: AIzaSyA983_jH7xNyKDr2s3_1KRAr8mw3G7OhRQ
+
+#server:
+#  softNofileLimit: 1000
+#  hardNofileLimit: 1000
+#  applicationConnectors:
+#    - type: http
+#      port: 8080
+#    - type: https
+#      port: 8443
+#      keyStorePath: /root/Workspace/Signal-Server-Fork/config/keystore.jks
+#      keyStorePassword: password
+#      keyStoreType: JKS
+#      keyStoreProvider:
+#      trustStorePath: /path/to/file
+#      trustStorePassword: changeit
+#      trustStoreType: JKS
+#      trustStoreProvider:
+#      keyManagerPassword: changeit
+#      needClientAuth: false
+#      wantClientAuth:
+#      certAlias: <alias>
+#      crlPath: /path/to/file
+#      enableCRLDP: false
+#      enableOCSP: false
+#      maxCertPathLength: (unlimited)
+#      ocspResponderUrl: (none)
+#      jceProvider: (none)
+#      validateCerts: true
+#      validatePeers: true
+#      supportedProtocols: SSLv3
+#      supportedCipherSuites: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+#      allowRenegotiation: true
+#      endpointIdentificationAlgorithm: (none)
+#      validateCerts: true
+#  adminConnectors:
+#    - type: http
+#      port: 8081
+#    - type: https
+#      port: 8444
+#      keyStorePath: /root/Workspace/Signal-Server-Fork/config/keystore.jks
+#      keyStorePassword: password
+#      keyStoreType: JKS
+#      keyStoreProvider:
+#      trustStorePath: /path/to/file
+#      trustStorePassword: changeit
+#      trustStoreType: JKS
+#      trustStoreProvider:
+#      keyManagerPassword: changeit
+#      needClientAuth: false
+#      wantClientAuth:
+#      certAlias: <alias>
+#      crlPath: /path/to/file
+#      enableCRLDP: false
+#      enableOCSP: false
+#      maxCertPathLength: (unlimited)
+#      ocspResponderUrl: (none)
+#      jceProvider: (none)
+#      validateCerts: true
+#      validatePeers: true
+#      supportedProtocols: SSLv3
+#      supportedCipherSuites: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+#      allowRenegotiation: true
+#      endpointIdentificationAlgorithm: (none)
+#      validateCerts: true
+
+logging:
+  level: INFO
+  appenders:
+    - type: file
+      currentLogFilename: /tmp/signal-server-log.log
+      archivedLogFilenamePattern: /temp/signal-server-log-%d.log.gz
+      archivedFileCount: 5
+    - type: console
