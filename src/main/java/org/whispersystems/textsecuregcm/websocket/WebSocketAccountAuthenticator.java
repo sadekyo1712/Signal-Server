@@ -25,6 +25,9 @@ public class WebSocketAccountAuthenticator implements WebSocketAuthenticator<Acc
   @Override
   public Optional<Account> authenticate(UpgradeRequest request) throws AuthenticationException {
     try {
+
+      System.out.println("hit me here");
+
       Map<String, List<String>> parameters = request.getParameterMap();
       List<String>              usernames  = parameters.get("login");
       List<String>              passwords  = parameters.get("password");
@@ -34,7 +37,6 @@ public class WebSocketAccountAuthenticator implements WebSocketAuthenticator<Acc
       {
         return Optional.absent();
       }
-
 
       System.out.println(usernames);
       System.out.println(passwords);
