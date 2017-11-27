@@ -35,6 +35,7 @@ public class WebSocketAccountAuthenticator implements WebSocketAuthenticator<Acc
         return Optional.absent();
       }
 
+
       System.out.println(usernames);
       System.out.println(passwords);
 
