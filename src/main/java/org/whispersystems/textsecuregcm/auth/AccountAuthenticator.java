@@ -74,7 +74,7 @@ public class AccountAuthenticator implements Authenticator<BasicCredentials, Acc
         return account;
       }
 
-      System.out.println("Authenticate failed");
+      System.out.println("Authenticate fail");
       authenticationFailedMeter.mark();
       return Optional.absent();
     } catch (InvalidAuthorizationHeaderException iahe) {
