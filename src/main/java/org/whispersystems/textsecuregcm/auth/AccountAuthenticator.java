@@ -65,18 +65,12 @@ public class AccountAuthenticator implements Authenticator<BasicCredentials, Acc
         return Optional.absent();
       }
 
-      System.out.println("Hit me");
-
       if (device.get().getAuthenticationCredentials().verify(basicCredentials.getPassword())) {
         authenticationSucceededMeter.mark();
         account.get().setAuthenticatedDevice(device.get());
         updateLastSeen(account.get(), device.get());
-        System.out.println("Authenticate succeed");
-        System.out.println(account);
         return account;
       }
-
-      System.out.println("Authenticate fail");
       authenticationFailedMeter.mark();
       return Optional.absent();
     } catch (InvalidAuthorizationHeaderException iahe) {
