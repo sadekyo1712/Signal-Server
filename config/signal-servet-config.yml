@@ -126,7 +126,7 @@ gcm: # GCM Configuration
 #      validateCerts: true
 
 logging:
-  level: DEBUG
+  level: INFO
   appenders:
     - type: file
       currentLogFilename: /tmp/signal-server-log.log
