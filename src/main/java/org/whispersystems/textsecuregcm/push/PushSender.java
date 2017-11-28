@@ -101,6 +101,7 @@ public class PushSender implements Managed {
   }
 
   private void sendSynchronousMessage(Account account, Device device, Envelope message, boolean silent) {
+    System.out.println(device.getGcmId());
     if      (device.getGcmId() != null)   sendGcmMessage(account, device, message);
     else if (device.getApnId() != null)   sendApnMessage(account, device, message, silent);
     else if (device.getFetchesMessages()) sendWebSocketMessage(account, device, message);
