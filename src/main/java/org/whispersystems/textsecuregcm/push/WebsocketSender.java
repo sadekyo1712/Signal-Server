@@ -67,7 +67,7 @@ public class WebsocketSender {
     this.pubSubManager   = pubSubManager;
   }
 
-  public DeliveryStatus sendMessage(Account account, Device device, Envelope message, Type channel) {
+  public DeliveryStatus   sendMessage(Account account, Device device, Envelope message, Type channel) {
     WebsocketAddress address       = new WebsocketAddress(account.getNumber(), device.getId());
     PubSubMessage    pubSubMessage = PubSubMessage.newBuilder()
                                                   .setType(PubSubMessage.Type.DELIVER)
