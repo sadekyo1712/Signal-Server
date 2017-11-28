@@ -53,7 +53,7 @@ public class EncryptedOutgoingMessage {
     SecretKeySpec macKey     = getMacKey(signalingKey);
 
     System.out.println("");
-    System.out.println(Arrays.toString(plaintext));
+    System.out.println(new String(plaintext));
     System.out.println(signalingKey);
     System.out.println(cipherKey);
     System.out.println(macKey);
