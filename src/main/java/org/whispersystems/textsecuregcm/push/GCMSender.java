@@ -87,6 +87,7 @@ public class GCMSender implements Managed {
 
       @Override
       public void onFailure(Throwable throwable) {
+        System.out.println("Hit me");
         logger.warn("GCM Failed: " + throwable);
       }
     }, executor);
