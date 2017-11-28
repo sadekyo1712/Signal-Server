@@ -31,6 +31,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 
 public class EncryptedOutgoingMessage {
 
@@ -50,6 +51,13 @@ public class EncryptedOutgoingMessage {
     byte[]        plaintext  = outgoingMessage.toByteArray();
     SecretKeySpec cipherKey  = getCipherKey (signalingKey);
     SecretKeySpec macKey     = getMacKey(signalingKey);
+
+    System.out.println("");
+    System.out.println(Arrays.toString(plaintext));
+    System.out.println(signalingKey);
+    System.out.println(cipherKey);
+    System.out.println(macKey);
+    System.out.println("");
 
     this.serialized           = getCiphertext(plaintext, cipherKey, macKey);
     this.serializedAndEncoded = Base64.encodeBytes(this.serialized);
