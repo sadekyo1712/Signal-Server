@@ -52,13 +52,6 @@ public class EncryptedOutgoingMessage {
     SecretKeySpec cipherKey  = getCipherKey (signalingKey);
     SecretKeySpec macKey     = getMacKey(signalingKey);
 
-    System.out.println("");
-    System.out.println(new String(plaintext));
-    System.out.println(signalingKey);
-    System.out.println(cipherKey);
-    System.out.println(macKey);
-    System.out.println("");
-
     this.serialized           = getCiphertext(plaintext, cipherKey, macKey);
     this.serializedAndEncoded = Base64.encodeBytes(this.serialized);
   }

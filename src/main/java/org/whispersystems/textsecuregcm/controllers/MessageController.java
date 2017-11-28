@@ -106,7 +106,6 @@ public class MessageController {
     try {
       boolean isSyncMessage = source.getNumber().equals(destinationName);
 
-      System.out.println(Util.isEmpty(messages.getRelay()));
       if (Util.isEmpty(messages.getRelay())) sendLocalMessage(source, destinationName, messages, isSyncMessage);
       else                                   sendRelayMessage(source, destinationName, messages, isSyncMessage);
 
