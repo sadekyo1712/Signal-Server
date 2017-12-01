@@ -35,16 +35,16 @@ messageStore:
   password: 1234567a@
   url: jdbc:postgresql://localhost:5432/messagedb
 
-attachments: # AWS S3
-  accessKey: ABCDEFGCUFYDHVM2LXXX
-  accessSecret: W0UfGDddfAbqYyCTIIbSQlDtreTGokOs0OTpL0SE
-  bucket: thenameofyouts3buket
+attachments: # AWS S3 => Minio server
+  accessKey: Q3AM3UQ867SPQQA43P2F
+  accessSecret: zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG
+  bucket: fosec
 
-profiles: # AWS S3
-  accessKey: ABCDEFGCUFYDHVM2LXXX
-  accessSecret: W0UfGDddfAbqYyCTIIbSQlDtreTGokOs0OTpL0SE
-  bucket: thenameofyouts3buket
-  region: eu-west-1
+profiles: # AWS S3 => Minio server
+  accessKey: Q3AM3UQ867SPQQA43P2F
+  accessSecret: zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG
+  bucket: fosec
+  region: us-east-1
 
 database:
   driverClass: org.postgresql.Driver
