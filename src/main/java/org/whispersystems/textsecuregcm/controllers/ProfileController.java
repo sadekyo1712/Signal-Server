@@ -175,6 +175,13 @@ public class ProfileController {
                                              policyMinio.get("policy"), policyMinio.get("x-amz-signature"));
   }
 
+  /**
+   * Fosec mod version to retrieve avatar from minio instead of aws s3 cdn
+   * @param account account call rest api
+   * @param avatar avatar name
+   * @return avatar presign url location
+   * @throws RateLimitExceededException
+   */
   @Timed
   @GET
   @Produces(MediaType.APPLICATION_JSON)
