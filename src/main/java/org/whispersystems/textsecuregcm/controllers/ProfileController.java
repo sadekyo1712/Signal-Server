@@ -10,11 +10,13 @@ import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 import io.minio.MinioClient;
 import io.minio.errors.MinioException;
+import io.minio.http.Method;
 import org.apache.commons.codec.binary.Base64;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.valuehandling.UnwrapValidatedValue;
 import org.joda.time.DateTime;
 import org.whispersystems.textsecuregcm.configuration.ProfilesConfiguration;
+import org.whispersystems.textsecuregcm.entities.AvatarDescriptor;
 import org.whispersystems.textsecuregcm.entities.Profile;
 import org.whispersystems.textsecuregcm.entities.ProfileAvatarUploadAttributes;
 import org.whispersystems.textsecuregcm.limits.RateLimiters;
@@ -171,6 +173,29 @@ public class ProfileController {
     return new ProfileAvatarUploadAttributes(objectName, policyMinio.get("x-amz-credential"), "private",
                                              policyMinio.get("x-amz-algorithm"), policyMinio.get("x-amz-date"),
                                              policyMinio.get("policy"), policyMinio.get("x-amz-signature"));
+  }
+
+  @Timed
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  @Path("/avatar/{avatar}")
+  public AvatarDescriptor allocateAvatar(@Auth Account account,
+                                         @PathParam("avatar") String avatar)
+          throws RateLimitExceededException {
+    if (account.isRateLimited()) {
+      rateLimiters.getAttachmentLimiter().validate(account.getNumber());
+    }
+
+    String url = null;
+    Integer expire = 60*60;
+    try {
+      url = minioClient.getPresignedObjectUrl(Method.GET, bucket, "profiles/" + avatar, expire, null);
+    } catch (MinioException ex) {
+      ex.printStackTrace();
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+    return new AvatarDescriptor(avatar, url);
   }
 
   private String generateAvatarObjectName() {

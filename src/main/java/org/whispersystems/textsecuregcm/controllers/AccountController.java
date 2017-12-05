@@ -253,8 +253,6 @@ public class AccountController {
   public void setGcmRegistrationId(@Auth Account account, @Valid GcmRegistrationId registrationId) {
     Device device = account.getAuthenticatedDevice().get();
 
-    System.out.println(registrationId.getGcmRegistrationId());
-
     if (device.getGcmId() != null &&
         device.getGcmId().equals(registrationId.getGcmRegistrationId()))
     {
