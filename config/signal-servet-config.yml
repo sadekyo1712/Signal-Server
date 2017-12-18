@@ -61,7 +61,8 @@ gcm: # GCM Configuration
   senderId: 372656403936
   apiKey: AIzaSyA983_jH7xNyKDr2s3_1KRAr8mw3G7OhRQ
 
-#server:
+server:
+  rootPath: /api/*
 #  softNofileLimit: 1000
 #  hardNofileLimit: 1000
 #  applicationConnectors:
