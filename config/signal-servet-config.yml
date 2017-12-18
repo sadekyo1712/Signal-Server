@@ -62,10 +62,7 @@ gcm: # GCM Configuration
   apiKey: AIzaSyA983_jH7xNyKDr2s3_1KRAr8mw3G7OhRQ
 
 server:
-  applicationContextPath: /api/*
-  adminContextPath: /api/*
   rootPath: /api/*
-  type: default
 #  softNofileLimit: 1000
 #  hardNofileLimit: 1000
 #  applicationConnectors:
