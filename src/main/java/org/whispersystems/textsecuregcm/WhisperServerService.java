@@ -138,7 +138,7 @@ public class WhisperServerService extends Application<WhisperServerConfiguration
 
   @Override
   public String getName() {
-    return "fosec-secure-server";
+    return "fchat-server";
   }
 
   @Override
