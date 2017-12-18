@@ -241,10 +241,10 @@ public class WhisperServerService extends Application<WhisperServerConfiguration
     ServletRegistration.Dynamic websocket    = environment.servlets().addServlet("WebSocket", webSocketServlet      );
     ServletRegistration.Dynamic provisioning = environment.servlets().addServlet("Provisioning", provisioningServlet);
 
-    websocket.addMapping("/v1/websocket/");
+    websocket.addMapping("/api/v1/websocket/");
     websocket.setAsyncSupported(true);
 
-    provisioning.addMapping("/v1/websocket/provisioning/");
+    provisioning.addMapping("/api/v1/websocket/provisioning/");
     provisioning.setAsyncSupported(true);
 
     webSocketServlet.start();
