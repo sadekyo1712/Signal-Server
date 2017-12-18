@@ -201,8 +201,6 @@ public class WhisperServerService extends Application<WhisperServerConfiguration
     MessageController    messageController    = new MessageController(rateLimiters, pushSender, receiptSender, accountsManager, messagesManager, federatedClientManager);
     ProfileController    profileController    = new ProfileController(rateLimiters , accountsManager, config.getProfilesConfiguration());
 
-    environment.jersey().setUrlPattern("/api/*");
-    environment.jersey().getResourceConfig().setUrlPattern("/api/*");
     environment.jersey().register(new AuthDynamicFeature(new BasicCredentialAuthFilter.Builder<Account>()
                                                              .setAuthenticator(deviceAuthenticator)
                                                              .setPrincipal(Account.class)
