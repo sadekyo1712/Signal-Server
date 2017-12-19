@@ -13,10 +13,12 @@ redphone:
   authKey: # Deprecated
 
 turn:
-#  secret: ABCDEFGCUFYDHVM2LXXX
-  secret: DSFGDSFGSDFGSDFGSD
+  secret: fchat-server:1234567a@
   uris:
-    - stun:fake.dev-fone.com:3478
+    - stun:dev-fone.fosec.vn:3478
+    - stun:dev-fone.fosec.vn:5349
+    - turn:dev-fone.fosec.vn:3478
+    - turn:dev-fone.fosec.vn:5349
 #    - stun:global.stun.twilio.com:3478?transport=udp
 #    - stun:stun.l.google.com:19302
 #    - stun:stun1.l.google.com:19302
